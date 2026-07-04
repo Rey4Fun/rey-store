@@ -28,9 +28,8 @@ export default function Store() {
         {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-6 mb-10">
           <div>
-            <a href="https://reyasadel.com" className="text-xs font-mono text-indigo-400 hover:underline mb-2 block">← Back to Mainframe</a>
             <h1 className="text-4xl font-black tracking-tight uppercase">Curated Kicks Lab</h1>
-            <p className="text-sm font-mono text-slate-400 mt-1">// Adidas Affiliate Showcase Hub</p>
+            <p className="text-sm font-mono text-slate-400 mt-1">// Affiliate Showcase Hub</p>
           </div>
 
           {/* FILTER TABS */}
