@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// KOMPONEN KARTU PRODUK DENGAN SLIDER & BANDINGKAN HARGA PLATFORM
+// KOMPONEN KARTU PRODUK DENGAN DUAL PLATFORM & LIGHTBOX
 function ProductCard({ product, onZoom }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
 
@@ -21,20 +21,11 @@ function ProductCard({ product, onZoom }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-5 flex flex-col justify-between shadow-md hover:border-slate-700 transition-colors relative group">
       
-      {/* BADGE STRATEGIS: OFFICIAL STORE ATAU TRUST RATING */}
-      <span className={`absolute top-2 right-2 sm:top-4 sm:right-4 border font-mono text-[8px] sm:text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider z-20 ${
-        product.isOfficial 
-          ? "bg-blue-500/10 border-blue-500/30 text-blue-400" 
-          : "bg-slate-950 border-slate-800 text-slate-400"
-      }`}>
-        {product.isOfficial ? "🔹 Official Store" : "⭐ Top Rated"}
-      </span>
-      
       <div>
-        {/* CONTAINER IMAGE DENGAN NAVIGASI & FITUR TAP TO ZOOM */}
+        {/* CONTAINER IMAGE - BERSIH TANPA OVERLAY BADGE */}
         <div 
           onClick={() => onZoom(product.images[currentImgIdx])}
-          className="w-full aspect-square sm:aspect-[4/3] bg-slate-950 rounded-lg flex items-center justify-center mb-2 sm:mb-4 border border-slate-800/50 relative overflow-hidden select-none cursor-zoom-in"
+          className="w-full aspect-square bg-slate-950 rounded-lg flex items-center justify-center mb-3 border border-slate-800/50 relative overflow-hidden select-none cursor-zoom-in"
           title="Klik untuk memperbesar"
         >
           {product.images[0].startsWith("/") ? (
@@ -52,13 +43,13 @@ function ProductCard({ product, onZoom }) {
             <>
               <button 
                 onClick={prevImage}
-                className="absolute left-1 top-1/2 -translate-y-1/2 bg-slate-950/80 border border-slate-800 text-white w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-xs z-10 font-bold"
+                className="absolute left-1 top-1/2 -translate-y-1/2 bg-slate-950/80 border border-slate-800 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs z-10 font-bold"
               >
                 ‹
               </button>
               <button 
                 onClick={nextImage}
-                className="absolute right-1 top-1/2 -translate-y-1/2 bg-slate-950/80 border border-slate-800 text-white w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-xs z-10 font-bold"
+                className="absolute right-1 top-1/2 -translate-y-1/2 bg-slate-950/80 border border-slate-800 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs z-10 font-bold"
               >
                 ›
               </button>
@@ -74,6 +65,17 @@ function ProductCard({ product, onZoom }) {
           )}
         </div>
 
+        {/* TEMPAT BADGE BARU: DI BAWAH FOTO (Kelihatan Sangat Rapi & Profesional) */}
+        <div className="mb-2">
+          <span className={`inline-block font-mono text-[8px] sm:text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
+            product.isOfficial 
+              ? "bg-blue-500/10 border border-blue-500/30 text-blue-400" 
+              : "bg-slate-950 border border-slate-800 text-slate-400"
+          }`}>
+            {product.isOfficial ? "🔹 Official Store" : "⭐ Top Rated"}
+          </span>
+        </div>
+
         {/* Detail Identitas Produk */}
         <h3 className="font-bold text-xs sm:text-base tracking-tight text-white mb-1 line-clamp-2 h-8 sm:h-auto">
           {product.name}
@@ -85,22 +87,22 @@ function ProductCard({ product, onZoom }) {
         </div>
       </div>
 
-      {/* MATRIX PERBANDINGAN HARGA & REDIRECT LANGSUNG (RESPONSIF MOBILE GRID) */}
+      {/* RE-ENGINEERED PLATFORM PRICE BARS (RESPONSIF MOBILE PRO) */}
       <div className="flex flex-col border-t border-slate-800/60 pt-2.5 mt-auto gap-1.5">
-        <div className="text-[8px] font-mono text-slate-500 uppercase tracking-wider">// Cek Banding Harga:</div>
+        <div className="text-[8px] font-mono text-slate-500 uppercase tracking-wider">// Perbandingan Harga:</div>
         
         {/* Baris Harga Shopee */}
         {product.shopee && (
-          <div className="flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg">
-            <div className="flex flex-col">
-              <span className="text-[8px] text-orange-400 font-bold font-mono">SHOPEE</span>
-              <span className="font-mono font-black text-slate-200 text-xs sm:text-sm">{product.shopee.price}</span>
+          <div className="flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg gap-2">
+            <div className="flex flex-col min-w-0">
+              <span className="text-[8px] text-orange-400 font-bold font-mono tracking-wider">SHOPEE</span>
+              <span className="font-mono font-black text-slate-200 text-xs sm:text-sm truncate">{product.shopee.price}</span>
             </div>
             <a 
               href={product.shopee.link} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="px-2.5 py-1 bg-orange-600 hover:bg-orange-500 text-white text-[10px] font-mono font-bold rounded-md transition-colors"
+              className="px-2.5 py-1 bg-orange-600 hover:bg-orange-500 text-white text-[10px] font-mono font-bold rounded-md transition-colors shrink-0 whitespace-nowrap"
             >
               Beli ↗
             </a>
@@ -109,16 +111,16 @@ function ProductCard({ product, onZoom }) {
 
         {/* Baris Harga Tokopedia */}
         {product.tokopedia && (
-          <div className="flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg">
-            <div className="flex flex-col">
-              <span className="text-[8px] text-emerald-400 font-bold font-mono">TOKOPEDIA</span>
-              <span className="font-mono font-black text-slate-200 text-xs sm:text-sm">{product.tokopedia.price}</span>
+          <div className="flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg gap-2">
+            <div className="flex flex-col min-w-0">
+              <span className="text-[8px] text-emerald-400 font-bold font-mono tracking-wider">TOKOPEDIA</span>
+              <span className="font-mono font-black text-slate-200 text-xs sm:text-sm truncate">{product.tokopedia.price}</span>
             </div>
             <a 
               href={product.tokopedia.link} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-mono font-bold rounded-md transition-colors"
+              className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-mono font-bold rounded-md transition-colors shrink-0 whitespace-nowrap"
             >
               Beli ↗
             </a>
@@ -139,7 +141,7 @@ export default function Store() {
   const [filter, setFilter] = useState("all");
   const [subFilter, setSubFilter] = useState("all");
   const [detailFilter, setDetailFilter] = useState("all");
-  const [zoomImg, setZoomImg] = useState(null); // State Global Lightbox
+  const [zoomImg, setZoomImg] = useState(null);
 
   const categories = [
     { id: "all", name: "Semua Kategori", subs: [] },
@@ -183,7 +185,6 @@ export default function Store() {
     }
   ];
 
-  // CONTOH DATA STRUKTUR PRODUK BARU (NAMA FOLDER BERJENJANG & MULTI PLATFORM PURE AFFILIATE)
   const products = [
     { 
       id: 1, 
@@ -191,7 +192,7 @@ export default function Store() {
       category: "perawatan", 
       subCategory: "Men's Grooming",
       detailCategory: "Sabun Muka Pria",
-      isOfficial: true, // JIKA TRUE AUTOMATIC MUNCUL BADGE 'OFFICIAL STORE'
+      isOfficial: false, // KAHF SUDAH DIUBAH MENJADI FALSE (MUNCUL TOP RATED)
       images: [
         "/products/kahf/face-wash-oil/1.jpeg",
         "/products/kahf/face-wash-oil/2.jpeg",
@@ -202,8 +203,8 @@ export default function Store() {
         "/products/kahf/face-wash-oil/7.jpeg",
         "/products/kahf/face-wash-oil/8.jpeg"
       ], 
-      shopee: { price: "Rp 38.900", link: "https://s.shopee.co.id/1VxLaigbJh" }, // Link Shopee Lu
-      tokopedia: { price: "Rp 39.500", link: "https://tokopedia.link/MasukkanLinkAffiliateTokpedLu" } // Link Tokped Lu
+      shopee: { price: "Rp 38.900", link: "https://s.shopee.co.id/1VxLaigbJh" },
+      tokopedia: { price: "Rp 39.500", link: "#" } 
     },
     { 
       id: 2, 
@@ -211,7 +212,7 @@ export default function Store() {
       category: "otomotif", 
       subCategory: "Perkakas",
       detailCategory: "Untuk Keduanya (Universal)",
-      isOfficial: false, // JIKA FALSE AUTOMATIC MUNCUL BADGE 'TOP RATED'
+      isOfficial: false,
       images: ["🔧"], 
       shopee: { price: "Rp 125.000", link: "#" },
       tokopedia: { price: "Rp 122.000", link: "#" }
@@ -344,11 +345,11 @@ export default function Store() {
         </div>
       </div>
 
-      {/* LIGHTBOX MODAL: PREVIEW PERBESAR FOTO PRODUK */}
+      {/* LIGHTBOX MODAL: ZOOM PREVIEW */}
       {zoomImg && (
         <div 
           onClick={() => setZoomImg(null)}
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 cursor-zoom-out"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 cursor-zoom-out"
         >
           <div className="relative max-w-3xl max-h-[85vh] w-full h-full flex items-center justify-center">
             <img 
@@ -356,7 +357,7 @@ export default function Store() {
               alt="Preview Zoom" 
               className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border border-slate-800"
             />
-            <button className="absolute -top-10 right-0 text-white font-mono text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full hover:bg-slate-800 transition-colors">
+            <button className="absolute -top-10 right-0 text-white font-mono text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full hover:bg-slate-800">
               ✕ Tutup
             </button>
           </div>
