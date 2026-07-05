@@ -111,7 +111,7 @@ function ProductCard({ product, onZoom }) {
 
         {/* Baris Harga Tokopedia */}
         {product.tokopedia && (
-          <div className="flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg gap-2">
+          <div className="fixed-items flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg gap-2">
             <div className="flex flex-col min-w-0">
               <span className="text-[8px] text-emerald-400 font-bold font-mono tracking-wider">TOKOPEDIA</span>
               <span className="font-mono font-black text-slate-200 text-xs sm:text-sm truncate">{product.tokopedia.price}</span>
@@ -164,7 +164,6 @@ export default function Store() {
     { 
       id: "buku", 
       name: "Buku & Alat Tulis", 
-      // INTEGRASI SEGMEN PREMIUM PILIHAN REY (STUDYGRAM, JOURNAL, KANTOR, EXAM PREP, DLL)
       subs: [
         { name: "Studygram & Estetika Pelajar", details: ["Loose Leaf Grid/Dotted B5", "Binder Transparan B5", "Stabilo Warna Pastel", "Pulpen Gel Cepat Kering", "Flashcard Ring Hafalan", "Sticky Notes Transparan"] },
         { name: "Bullet Journal & Seni Kreatif", details: ["Notebook Dotted Tebal", "Brush Pen Dual Tip", "Washi Tape Aesthetic", "Stiker Dekorasi Jurnal", "Sketchbook Watercolor", "Paper Cutter Pen"] },
@@ -177,9 +176,16 @@ export default function Store() {
     { 
       id: "perawatan", 
       name: "Perawatan & Kecantikan", 
+      // EXPANDED DAN RE-DEVELOPED BIAR COWO LANGSUNG COCOK & MASALAH KULIT JELAS PENEMPATANNYA
       subs: [
-        { name: "Men's Grooming", details: ["Sabun Muka Pria", "Minyak Rambut / Pomade", "Parfum Pria", "Paket Perawatan Pria"] },
-        { name: "Makeup", details: ["Lip Tint & Lipstik", "Bedak & Cushion", "Blush On"] }
+        { name: "Men's Grooming & Care", details: ["Sabun Muka Pria", "Minyak Rambut / Pomade", "Parfum Pria", "Paket Perawatan Pria", "Shampoo & Tonic Pria", "Deodorant & Body Pria"] },
+        { name: "Kulit Sensitif & Barrier Repair", details: ["Facial Wash Low pH", "Moisturizer Ceramide/Centella", "Physical Sunscreen", "Hydrating Toner Hyaluronic", "Micellar Water Sensitive"] },
+        { name: "Kulit Berjerawat & Berminyak", details: ["Acne Patch Invisible", "Serum Salicylic Acid (BHA)", "Clay Mask Mugwort/Teatree", "Sunscreen Matte Finish", "Spot Treatment/Gel Totol"] },
+        { name: "Anti-Aging & Kulit Kering", details: ["Serum Retinol Pemula", "Eye Cream Peptide/Caffeine", "Night Cream Collagen", "Essence Wajah Kental"] },
+        { name: "Rambut & Kulit Kepala Khusus", details: ["Shampoo Anti Ketombe", "Hair Tonic Anti Rontok", "Hair Serum Heat Protector", "Hair Mask Bleaching/Warna", "Dry Shampoo Anti Lepek"] },
+        { name: "Perawatan Tubuh & Higienitas", details: ["Body Wash Acne Punggung", "Body Lotion SPF 50++++", "Lotion Tumit Pecah/Urea", "Deodorant Serum Brightening", "Body Scrub Kojic Acid"] },
+        { name: "Perawatan Gigi & Mulut (Oral Care)", details: ["Sikat Gigi Ultra Soft/Nano", "Sikat Gigi Khusus Ortho/Behel", "Pasta Gigi Sensitif No SLS", "Dental Floss Pick Gagang", "Mouthwash Non-Alkohol", "Alat Pembersih Lidah"] },
+        { name: "Makeup & Kosmetik Estetik", details: ["Lip Tint & Lipstik", "Bedak & Cushion", "Blush On & Highlighter"] }
       ] 
     },
     { 
@@ -200,12 +206,13 @@ export default function Store() {
     }
   ];
 
+  // ADAPTASI KODE AGAR DATA PRODUK EKSISTING TETAP TERHUBUNG DENGAN SUB-KATEGORI BARU
   const products = [
     { 
       id: 1, 
       name: "Face Wash SOMBONG 5-in-1 Gentle Clean Pria", 
       category: "perawatan", 
-      subCategory: "Men's Grooming",
+      subCategory: "Men's Grooming & Care",
       detailCategory: "Sabun Muka Pria",
       isOfficial: false, 
       images: [
@@ -226,7 +233,7 @@ export default function Store() {
       id: 2, 
       name: "Kahf Bundle 4IN1 Bright & Pembersih Komplit Pria", 
       category: "perawatan", 
-      subCategory: "Men's Grooming",
+      subCategory: "Men's Grooming & Care",
       detailCategory: "Paket Perawatan Pria",
       isOfficial: false, 
       images: [
@@ -243,7 +250,7 @@ export default function Store() {
       id: 3, 
       name: "Hanasui Tintdorable Lip Stain / Lip Tint Natural Tint", 
       category: "perawatan", 
-      subCategory: "Makeup",
+      subCategory: "Makeup & Kosmetik Estetik",
       detailCategory: "Lip Tint & Lipstik",
       isOfficial: false, 
       images: [
