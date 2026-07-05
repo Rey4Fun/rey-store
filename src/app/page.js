@@ -191,7 +191,6 @@ export default function Store() {
     { 
       id: "makanan", 
       name: "Makanan & Minuman", 
-      // INTEGRASI MAPPING PREMIUM F&B PILIHAN REY (DIET, FROZEN, HOME BARISTA, BAKING, DLL)
       subs: [
         { name: "Diet Khusus & Lifestyle Sehat", details: ["Susu Oat/Almond Barista", "Granola Low Sugar", "Minyak Zaitun EVOO", "Kecap/Saus Bebas Gula", "Tepung Premix Gluten-Free"] },
         { name: "Makanan Praktis & Siap Saji", details: ["Daging Slice Premium", "Dimsum/Gyoza Frozen", "Bumbu Dasar Siap Pakai", "Sambal Botolan Unik", "Kit Steamboat Instan"] },
@@ -203,11 +202,15 @@ export default function Store() {
     },
     { 
       id: "otomotif", 
-      name: "Otomotif", 
+      name: "Otomotif & Transportasi", 
+      // INTEGRASI STRUKTUR MEGAPROJEK KENDARAAN GLOBAL & MEREK SPESIFIK PILIHAN REY
       subs: [
-        { name: "Aksesoris Mobil", details: ["Khusus Avanza / Xenia", "Universal Mobil"] },
-        { name: "Aksesoris Motor", details: ["Beat / Scoopy", "NMAX / PCX"] },
-        { name: "Perkakas", details: ["Khusus Mobil", "Khusus Motor", "Untuk Keduanya (Universal)"] }
+        { name: "Mobil & Roda Empat (Cars)", details: ["Toyota", "Honda", "BYD / Tesla (EV)", "Suzuki", "Mitsubishi", "Hyundai / Wuling", "Daihatsu", "BMW / Mercedes-Benz"] },
+        { name: "Motor & Roda Dua (Motorcycles)", details: ["Honda Motor", "Yamaha", "Kawasaki", "Suzuki Motor", "Vespa / Piaggio", "Motor Listrik (Alva/Gesits)", "Harley-Davidson"] },
+        { name: "Pesawat Terbang (Aviation)", details: ["Airbus", "Boeing", "ATR", "Bombardier / Embraer", "Cessna / Private Jet"] },
+        { name: "Helikopter (Helicopters)", details: ["Airbus Helicopters", "Bell Textron", "Sikorsky", "Leonardo / AgustaWestland", "Robinson"] },
+        { name: "Kereta Api & Rel (Railways)", details: ["PT INKA (Indonesia)", "CRRC (China)", "Alstom", "Siemens", "Hitachi / Kawasaki Heavy"] },
+        { name: "Kendaraan Berat & Komersial", details: ["Caterpillar (CAT)", "Komatsu", "Volvo Trucks", "Scania / Hino"] }
       ] 
     }
   ];
