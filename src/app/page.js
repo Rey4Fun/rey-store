@@ -65,7 +65,7 @@ function ProductCard({ product, onZoom }) {
           )}
         </div>
 
-        {/* TEMPAT BADGE BARU: DI BAWAH FOTO (Kelihatan Sangat Rapi & Profesional) */}
+        {/* TEMPAT BADGE: DI BAWAH FOTO */}
         <div className="mb-2">
           <span className={`inline-block font-mono text-[8px] sm:text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
             product.isOfficial 
@@ -87,7 +87,7 @@ function ProductCard({ product, onZoom }) {
         </div>
       </div>
 
-      {/* RE-ENGINEERED PLATFORM PRICE BARS (RESPONSIF MOBILE PRO) */}
+      {/* MATRIX PERBANDINGAN HARGA */}
       <div className="flex flex-col border-t border-slate-800/60 pt-2.5 mt-auto gap-1.5">
         <div className="text-[8px] font-mono text-slate-500 uppercase tracking-wider">// Perbandingan Harga:</div>
         
@@ -192,7 +192,7 @@ export default function Store() {
       category: "perawatan", 
       subCategory: "Men's Grooming",
       detailCategory: "Sabun Muka Pria",
-      isOfficial: false, // KAHF SUDAH DIUBAH MENJADI FALSE (MUNCUL TOP RATED)
+      isOfficial: false, 
       images: [
         "/products/kahf/face-wash-oil/1.jpeg",
         "/products/kahf/face-wash-oil/2.jpeg",
@@ -204,7 +204,7 @@ export default function Store() {
         "/products/kahf/face-wash-oil/8.jpeg"
       ], 
       shopee: { price: "Rp 38.900", link: "https://s.shopee.co.id/1VxLaigbJh" },
-      tokopedia: { price: "Rp 39.500", link: "#" } 
+      tokopedia: { price: "Rp 39.500", link: "https://vt.tokopedia.com/t/ZS9MehQ5eYqsF-QVxlw/" } // LINK TOKOPEDIA AKTIF LU DI SINI
     },
     { 
       id: 2, 
