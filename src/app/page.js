@@ -165,7 +165,8 @@ export default function Store() {
       id: "perawatan", 
       name: "Perawatan & Kecantikan", 
       subs: [
-        { name: "Men's Grooming", details: ["Sabun Muka Pria", "Minyak Rambut / Pomade", "Parfum Pria"] }
+        { name: "Men's Grooming", details: ["Sabun Muka Pria", "Minyak Rambut / Pomade", "Parfum Pria", "Paket Perawatan Pria"] },
+        { name: "Makeup", details: ["Lip Tint & Lipstik", "Bedak & Cushion", "Blush On"] }
       ] 
     },
     { 
@@ -189,34 +190,59 @@ export default function Store() {
   const products = [
     { 
       id: 1, 
-      name: "Kahf Face Wash & Grooming Pack Men - Original", 
+      name: "Face Wash SOMBONG 5-in-1 Gentle Clean Pria", 
       category: "perawatan", 
       subCategory: "Men's Grooming",
       detailCategory: "Sabun Muka Pria",
       isOfficial: false, 
       images: [
-        "/products/kahf/face-wash-oil/1.jpeg",
-        "/products/kahf/face-wash-oil/2.jpeg",
-        "/products/kahf/face-wash-oil/3.jpeg",
-        "/products/kahf/face-wash-oil/4.jpeg",
-        "/products/kahf/face-wash-oil/5.jpeg",
-        "/products/kahf/face-wash-oil/6.jpeg",
-        "/products/kahf/face-wash-oil/7.jpeg",
-        "/products/kahf/face-wash-oil/8.jpeg"
+        "/products/sombong/face-wash/1.jpeg",
+        "/products/sombong/face-wash/2.jpeg",
+        "/products/sombong/face-wash/3.jpeg",
+        "/products/sombong/face-wash/4.jpeg",
+        "/products/sombong/face-wash/5.jpeg",
+        "/products/sombong/face-wash/6.jpeg",
+        "/products/sombong/face-wash/7.jpeg",
+        "/products/sombong/face-wash/8.jpeg",
+        "/products/sombong/face-wash/9.jpeg"
       ], 
-      shopee: { price: "Rp 38.900", link: "https://s.shopee.co.id/1VxLaigbJh" },
-      tokopedia: { price: "Rp 39.500", link: "https://vt.tokopedia.com/t/ZS9MehQ5eYqsF-QVxlw/" }
+      shopee: { price: "Rp 81.900", link: "https://s.shopee.co.id/AKYk87hPSy" },
+      tokopedia: { price: "Rp 81.900", link: "https://vt.tokopedia.com/t/ZS9MeSCHoX8jE-yGahM/" }
     },
     { 
       id: 2, 
-      name: "Kunci Sok Set Pas 46 Pcs Chrome Vanadium Heavy Duty", 
-      category: "otomotif", 
-      subCategory: "Perkakas",
-      detailCategory: "Untuk Keduanya (Universal)",
-      isOfficial: false,
-      images: ["🔧"], 
-      shopee: { price: "Rp 125.000", link: "#" },
-      tokopedia: { price: "Rp 122.000", link: "#" }
+      name: "Kahf Bundle 4IN1 Bright & Pembersih Komplit Pria", 
+      category: "perawatan", 
+      subCategory: "Men's Grooming",
+      detailCategory: "Paket Perawatan Pria",
+      isOfficial: false, 
+      // REVISI: DIBAWAH INI SUDAH PAS 14 FOTO (GAMBAR KE-15 DIHAPUS)
+      images: [
+        "/products/kahf/bundle-4in1/1.jpeg", "/products/kahf/bundle-4in1/2.jpeg", "/products/kahf/bundle-4in1/3.jpeg",
+        "/products/kahf/bundle-4in1/4.jpeg", "/products/kahf/bundle-4in1/5.jpeg", "/products/kahf/bundle-4in1/6.jpeg",
+        "/products/kahf/bundle-4in1/7.jpeg", "/products/kahf/bundle-4in1/8.jpeg", "/products/kahf/bundle-4in1/9.jpeg",
+        "/products/kahf/bundle-4in1/10.jpeg", "/products/kahf/bundle-4in1/11.jpeg", "/products/kahf/bundle-4in1/12.jpeg",
+        "/products/kahf/bundle-4in1/13.jpeg", "/products/kahf/bundle-4in1/14.jpeg"
+      ], 
+      shopee: { price: "Rp 126.490", link: "https://s.shopee.co.id/9AMmqIuh1y" },
+      tokopedia: { price: "Rp 105.154", link: "https://vt.tokopedia.com/t/ZS9MeAPEWbsdQ-BGFRW/" }
+    },
+    { 
+      id: 3, 
+      name: "Hanasui Tintdorable Lip Stain / Lip Tint Natural Tint", 
+      category: "perawatan", 
+      subCategory: "Makeup",
+      detailCategory: "Lip Tint & Lipstik",
+      isOfficial: false, 
+      images: [
+        "/products/hanasui/lip-tint/1.jpeg", "/products/hanasui/lip-tint/2.jpeg", "/products/hanasui/lip-tint/3.jpeg",
+        "/products/hanasui/lip-tint/4.jpeg", "/products/hanasui/lip-tint/5.jpeg", "/products/hanasui/lip-tint/6.jpeg",
+        "/products/hanasui/lip-tint/7.jpeg", "/products/hanasui/lip-tint/8.jpeg", "/products/hanasui/lip-tint/9.jpeg",
+        "/products/hanasui/lip-tint/10.jpeg", "/products/hanasui/lip-tint/11.jpeg", "/products/hanasui/lip-tint/12.jpeg",
+        "/products/hanasui/lip-tint/13.jpeg", "/products/hanasui/lip-tint/14.jpeg", "/products/hanasui/lip-tint/15.jpeg"
+      ], 
+      shopee: { price: "Rp 44.533", link: "https://s.shopee.co.id/AAFK2Tqn3R" },
+      tokopedia: { price: "Rp 41.912", link: "https://vt.tokopedia.com/t/ZS9MeDrTBJFym-y5NSK/" }
     }
   ];
 
@@ -365,7 +391,7 @@ export default function Store() {
         </div>
       )}
 
-      {/* POP-UP MODAL: UPGRADED REAL BOLD FORMATTING (FIXED BADGE TYPO) */}
+      {/* POP-UP MODAL: WELCOME MESSAGE */}
       {showWelcome && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 max-w-md w-full text-center shadow-2xl relative">
