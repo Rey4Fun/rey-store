@@ -176,7 +176,6 @@ export default function Store() {
     { 
       id: "perawatan", 
       name: "Perawatan & Kecantikan", 
-      // SEKARANG SUDAH ULTRA ADIL & SETARA GENDER (ADALAH KATEGORI COWOK & CEWEK MANDIRI)
       subs: [
         { name: "Men's Grooming & Care", details: ["Sabun Muka Pria", "Minyak Rambut / Pomade", "Parfum Pria", "Paket Perawatan Pria", "Shampoo & Tonic Pria", "Deodorant & Body Pria"] },
         { name: "Women's Skincare & Beauty", details: ["Facial Wash Glow Wanita", "Serum Mencerahkan", "Sunscreen Dewy Glow", "Moisturizer Brightening", "Body Lotion Whitening", "Paket Skincare Wanita"] },
@@ -192,8 +191,14 @@ export default function Store() {
     { 
       id: "makanan", 
       name: "Makanan & Minuman", 
+      // INTEGRASI MAPPING PREMIUM F&B PILIHAN REY (DIET, FROZEN, HOME BARISTA, BAKING, DLL)
       subs: [
-        { name: "Bahan Dapur", details: ["Bumbu Instan Masak", "Kebutuhan Baking"] }
+        { name: "Diet Khusus & Lifestyle Sehat", details: ["Susu Oat/Almond Barista", "Granola Low Sugar", "Minyak Zaitun EVOO", "Kecap/Saus Bebas Gula", "Tepung Premix Gluten-Free"] },
+        { name: "Makanan Praktis & Siap Saji", details: ["Daging Slice Premium", "Dimsum/Gyoza Frozen", "Bumbu Dasar Siap Pakai", "Sambal Botolan Unik", "Kit Steamboat Instan"] },
+        { name: "Home Barista & Cafe di Rumah", details: ["Biji Kopi Arabika", "Sirup Flavor Premium", "Bubuk Matcha Jepang Murni", "Teh Artisan Blend", "Bubuk Minuman Kiloan"] },
+        { name: "Camilan & Dessert Estetik", details: ["Baso Aci Instan Mercon", "Keripik Kaca/Usus Pedas", "Fudgy Brownies/Cookies", "Cokelat Kurma Almond", "Popcorn Karamel Pouch"] },
+        { name: "MPASI & Makanan Anak Sehat", details: ["Bubuk Kaldu Non-MSG", "Baby Rice Puffs", "Keju Khusus Bayi", "Bubur Organik MPASI", "Mie Sayur Organik"] },
+        { name: "Bahan Baku Baking Premium", details: ["Butter Premium Blok", "Cokelat Bubuk High Fat", "Garam Laut Sea Salt Flakes", "Ragi Instan Aktif"] }
       ] 
     },
     { 
