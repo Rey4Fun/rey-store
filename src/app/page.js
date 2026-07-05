@@ -144,7 +144,6 @@ export default function Store() {
   const [zoomImg, setZoomImg] = useState(null);
   const [showWelcome, setShowWelcome] = useState(true);
 
-  // MAPPING UTUHH 9 SUB-KATEGORI PERLENGKAPAN RUMAH PILIHAN REY
   const categories = [
     { id: "all", name: "Semua Kategori", subs: [] },
     { 
@@ -165,8 +164,14 @@ export default function Store() {
     { 
       id: "buku", 
       name: "Buku & Alat Tulis", 
+      // INTEGRASI SEGMEN PREMIUM PILIHAN REY (STUDYGRAM, JOURNAL, KANTOR, EXAM PREP, DLL)
       subs: [
-        { name: "Buku UTBK / Pelajaran", details: ["Saintek", "Soshum", "TPS / TPA", "Mandiri PTN"] }
+        { name: "Studygram & Estetika Pelajar", details: ["Loose Leaf Grid/Dotted B5", "Binder Transparan B5", "Stabilo Warna Pastel", "Pulpen Gel Cepat Kering", "Flashcard Ring Hafalan", "Sticky Notes Transparan"] },
+        { name: "Bullet Journal & Seni Kreatif", details: ["Notebook Dotted Tebal", "Brush Pen Dual Tip", "Washi Tape Aesthetic", "Stiker Dekorasi Jurnal", "Sketchbook Watercolor", "Paper Cutter Pen"] },
+        { name: "Profesional & Produktivitas", details: ["Undated Planner Book", "Expanding File Folder", "Notebook Kulit Premium", "Pulpen Tanda Tangan Premium", "Desktop Organizer Editor", "Sticky Notes Index Flags"] },
+        { name: "Buku Edukasi & Persiapan Ujian", details: ["Bank Soal UTBK-SNBT", "Panduan TOEFL/IELTS/JLPT", "Panduan Coding Python", "Belajar Investasi Saham", "Buku Rangkuman Rumus Saku"] },
+        { name: "Self-Improvement & Literasi Umum", details: ["Buku Self-Improvement", "Novel Fiksi Lokal", "Buku Parenting & Anak", "Novel Misteri/Thriller"] },
+        { name: "Edukasi Anak & Balita", details: ["Buku Mewarnai Wipe & Clean", "Buku Pop-Up 3D/Flap", "Busy Book Flannel", "Crayon Putar Non-Toxic", "Pensil Warna Box Kaleng"] }
       ] 
     },
     { 
