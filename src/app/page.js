@@ -65,7 +65,7 @@ function ProductCard({ product, onZoom }) {
           )}
         </div>
 
-        {/* RE-POSITIONED BADGE */}
+        {/* TEMPAT BADGE: DI BAWAH FOTO */}
         <div className="mb-2">
           <span className={`inline-block font-mono text-[8px] sm:text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
             product.isOfficial 
@@ -142,8 +142,6 @@ export default function Store() {
   const [subFilter, setSubFilter] = useState("all");
   const [detailFilter, setDetailFilter] = useState("all");
   const [zoomImg, setZoomImg] = useState(null);
-  
-  // STATE BARU: MENGATUR POP-UP WELCOME MESSAGE (Default True agar langsung muncul)
   const [showWelcome, setShowWelcome] = useState(true);
 
   const categories = [
@@ -367,25 +365,21 @@ export default function Store() {
         </div>
       )}
 
-      {/* POP-UP MODAL: DUKUNGAN PERPANJANG DOMAIN (REQUESTED FEATURE) */}
+      {/* POP-UP MODAL: UPGRADED REAL BOLD FORMATTING (FIXED BADGE TYPO) */}
       {showWelcome && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 max-w-md w-full text-center shadow-2xl relative animate-fade-in">
-            {/* Dekorasi Atas */}
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 max-w-md w-full text-center shadow-2xl relative">
             <div className="w-12 h-12 bg-indigo-600/10 border border-indigo-500/30 text-indigo-400 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
               👋
             </div>
-            {/* Judul Pesan */}
             <h2 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight mb-2">
               Welcome to Rey Store Hub!
             </h2>
-            {/* Isi Pesan Komisi & Perpanjang Domain */}
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-6">
               Terima kasih banyak telah berkunjung ke platform kurasi kami. Website ini dibuat secara independen untuk mempermudah kamu berbelanja produk terpercaya. 
               <br /><br />
-              Kami akan sangat berterima kasih apabila kamu melakukan checkout barang dari **link Shopee atau Tokopedia** yang kami sediakan. Komisi kecil dari pembelianmu akan dialokasikan penuh untuk **memperpanjang biaya sewa domain** website ini agar tetap bisa terus mengudara. 🙏✨
+              Kami akan sangat berterima kasih apabila kamu melakukan checkout barang dari <span className="font-bold text-indigo-400">link Shopee atau Tokopedia</span> yang kami sediakan. Komisi kecil dari pembelianmu akan dialokasikan penuh untuk <span className="font-bold text-indigo-400">memperpanjang biaya sewa domain</span> website ini agar tetap bisa terus mengudara. 🙏✨
             </p>
-            {/* Tombol Masuk Utama */}
             <button 
               onClick={() => setShowWelcome(false)}
               className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold rounded-xl transition-colors shadow-lg shadow-indigo-600/20 uppercase tracking-wider"
