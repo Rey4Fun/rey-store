@@ -111,7 +111,7 @@ function ProductCard({ product, onZoom }) {
 
         {/* Baris Harga Tokopedia */}
         {product.tokopedia && (
-          <div className="fixed-items flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg gap-2">
+          <div className="flex items-center justify-between bg-slate-950/40 border border-slate-800/60 p-1.5 rounded-lg gap-2">
             <div className="flex flex-col min-w-0">
               <span className="text-[8px] text-emerald-400 font-bold font-mono tracking-wider">TOKOPEDIA</span>
               <span className="font-mono font-black text-slate-200 text-xs sm:text-sm truncate">{product.tokopedia.price}</span>
@@ -176,9 +176,10 @@ export default function Store() {
     { 
       id: "perawatan", 
       name: "Perawatan & Kecantikan", 
-      // EXPANDED DAN RE-DEVELOPED BIAR COWO LANGSUNG COCOK & MASALAH KULIT JELAS PENEMPATANNYA
+      // SEKARANG SUDAH ULTRA ADIL & SETARA GENDER (ADALAH KATEGORI COWOK & CEWEK MANDIRI)
       subs: [
         { name: "Men's Grooming & Care", details: ["Sabun Muka Pria", "Minyak Rambut / Pomade", "Parfum Pria", "Paket Perawatan Pria", "Shampoo & Tonic Pria", "Deodorant & Body Pria"] },
+        { name: "Women's Skincare & Beauty", details: ["Facial Wash Glow Wanita", "Serum Mencerahkan", "Sunscreen Dewy Glow", "Moisturizer Brightening", "Body Lotion Whitening", "Paket Skincare Wanita"] },
         { name: "Kulit Sensitif & Barrier Repair", details: ["Facial Wash Low pH", "Moisturizer Ceramide/Centella", "Physical Sunscreen", "Hydrating Toner Hyaluronic", "Micellar Water Sensitive"] },
         { name: "Kulit Berjerawat & Berminyak", details: ["Acne Patch Invisible", "Serum Salicylic Acid (BHA)", "Clay Mask Mugwort/Teatree", "Sunscreen Matte Finish", "Spot Treatment/Gel Totol"] },
         { name: "Anti-Aging & Kulit Kering", details: ["Serum Retinol Pemula", "Eye Cream Peptide/Caffeine", "Night Cream Collagen", "Essence Wajah Kental"] },
@@ -206,7 +207,6 @@ export default function Store() {
     }
   ];
 
-  // ADAPTASI KODE AGAR DATA PRODUK EKSISTING TETAP TERHUBUNG DENGAN SUB-KATEGORI BARU
   const products = [
     { 
       id: 1, 
