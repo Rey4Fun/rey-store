@@ -22,7 +22,7 @@ function ProductCard({ product, onZoom }) {
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-5 flex flex-col justify-between shadow-md hover:border-slate-700 transition-colors relative group">
       
       <div>
-        {/* CONTAINER IMAGE - BERSIH TANPA OVERLAY BADGE */}
+        {/* CONTAINER IMAGE */}
         <div 
           onClick={() => onZoom(product.images[currentImgIdx])}
           className="w-full aspect-square bg-slate-950 rounded-lg flex items-center justify-center mb-3 border border-slate-800/50 relative overflow-hidden select-none cursor-zoom-in"
@@ -65,7 +65,7 @@ function ProductCard({ product, onZoom }) {
           )}
         </div>
 
-        {/* TEMPAT BADGE: DI BAWAH FOTO */}
+        {/* RE-POSITIONED BADGE */}
         <div className="mb-2">
           <span className={`inline-block font-mono text-[8px] sm:text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
             product.isOfficial 
@@ -142,6 +142,9 @@ export default function Store() {
   const [subFilter, setSubFilter] = useState("all");
   const [detailFilter, setDetailFilter] = useState("all");
   const [zoomImg, setZoomImg] = useState(null);
+  
+  // STATE BARU: MENGATUR POP-UP WELCOME MESSAGE (Default True agar langsung muncul)
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const categories = [
     { id: "all", name: "Semua Kategori", subs: [] },
@@ -204,7 +207,7 @@ export default function Store() {
         "/products/kahf/face-wash-oil/8.jpeg"
       ], 
       shopee: { price: "Rp 38.900", link: "https://s.shopee.co.id/1VxLaigbJh" },
-      tokopedia: { price: "Rp 39.500", link: "https://vt.tokopedia.com/t/ZS9MehQ5eYqsF-QVxlw/" } // LINK TOKOPEDIA AKTIF LU DI SINI
+      tokopedia: { price: "Rp 39.500", link: "https://vt.tokopedia.com/t/ZS9MehQ5eYqsF-QVxlw/" }
     },
     { 
       id: 2, 
@@ -359,6 +362,35 @@ export default function Store() {
             />
             <button className="absolute -top-10 right-0 text-white font-mono text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full hover:bg-slate-800">
               ✕ Tutup
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* POP-UP MODAL: DUKUNGAN PERPANJANG DOMAIN (REQUESTED FEATURE) */}
+      {showWelcome && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 max-w-md w-full text-center shadow-2xl relative animate-fade-in">
+            {/* Dekorasi Atas */}
+            <div className="w-12 h-12 bg-indigo-600/10 border border-indigo-500/30 text-indigo-400 rounded-full flex items-center justify-center mx-auto text-xl mb-4">
+              👋
+            </div>
+            {/* Judul Pesan */}
+            <h2 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight mb-2">
+              Welcome to Rey Store Hub!
+            </h2>
+            {/* Isi Pesan Komisi & Perpanjang Domain */}
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans mb-6">
+              Terima kasih banyak telah berkunjung ke platform kurasi kami. Website ini dibuat secara independen untuk mempermudah kamu berbelanja produk terpercaya. 
+              <br /><br />
+              Kami akan sangat berterima kasih apabila kamu melakukan checkout barang dari **link Shopee atau Tokopedia** yang kami sediakan. Komisi kecil dari pembelianmu akan dialokasikan penuh untuk **memperpanjang biaya sewa domain** website ini agar tetap bisa terus mengudara. 🙏✨
+            </p>
+            {/* Tombol Masuk Utama */}
+            <button 
+              onClick={() => setShowWelcome(false)}
+              className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold rounded-xl transition-colors shadow-lg shadow-indigo-600/20 uppercase tracking-wider"
+            >
+              Masuk ke Toko →
             </button>
           </div>
         </div>
