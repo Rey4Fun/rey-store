@@ -144,14 +144,22 @@ export default function Store() {
   const [zoomImg, setZoomImg] = useState(null);
   const [showWelcome, setShowWelcome] = useState(true);
 
+  // MAPPING UTUHH 9 SUB-KATEGORI PERLENGKAPAN RUMAH PILIHAN REY
   const categories = [
     { id: "all", name: "Semua Kategori", subs: [] },
     { 
       id: "rumah", 
       name: "Perlengkapan Rumah", 
       subs: [
-        { name: "Dapur", details: ["Alat Masak & Wajan", "Bumbu & Wadah", "Peralatan Makan"] },
-        { name: "Kamar Mandi", details: ["Rak Gantung", "Keset Anti Slip", "Dispenser Sabun"] }
+        { name: "Dapur", details: ["Air Fryer Low Watt", "Rak Bumbu Putar", "Organizer Kulkas Acrylic", "Kompor Induksi Portable", "Pisau Set Keramik", "Timbangan Digital Kue"] },
+        { name: "Kamar Mandi", details: ["Keset Diatomite", "Dispenser Sabun Otomatis", "Rak Sudut Tanpa Bor", "Cermin LED Touch Screen", "Shower Head High Pressure", "Sikat WC Silikon"] },
+        { name: "Kamar Tidur", details: ["Sprei Tencel/Bambu", "Bantal Memory Foam", "Humidifier Diffuser", "Lampu Tidur Proyektor", "Meja Rias LED Minimalis", "Gorden Blackout 100%"] },
+        { name: "Ruang Tamu", details: ["Sofa Bed Multifungsi", "Karpet Bulu Premium", "Coffee Table Nesting", "Pajangan Dinding Macrame", "Diffuser Reed Stick"] },
+        { name: "Ruang Keluarga", details: ["Bean Bag Triangle", "Bracket TV Swivel", "Soundbar Bluetooth", "Air Purifier HEPA", "Rak TV Gantung"] },
+        { name: "Ruang Makan", details: ["Taplak Meja PVC", "Set Cangkir Nordic", "Placemat Enceng Gondok", "Tudung Saji Susun", "Dispenser Galon Bawah"] },
+        { name: "Teras", details: ["Kursi Teras Rotan", "Keset Bihun Welcome", "Lampu Cafe Waterproof", "Rak Sepatu Tertutup", "Tanaman Artifisial Gantung"] },
+        { name: "Taman", details: ["Lampu Taman Solar", "Pot Terracotta/Semen", "Selang Air Magic Hose", "Rumput Sintetis", "Gunting Dahan SK5"] },
+        { name: "Garasi", details: ["Pegboard Perkakas", "Jet Cleaner Mobil", "Dongkrak Hidrolik", "Lampu LED Sensor Gerak", "Kunci Shock Set"] }
       ] 
     },
     { 
@@ -216,7 +224,6 @@ export default function Store() {
       subCategory: "Men's Grooming",
       detailCategory: "Paket Perawatan Pria",
       isOfficial: false, 
-      // REVISI: DIBAWAH INI SUDAH PAS 14 FOTO (GAMBAR KE-15 DIHAPUS)
       images: [
         "/products/kahf/bundle-4in1/1.jpeg", "/products/kahf/bundle-4in1/2.jpeg", "/products/kahf/bundle-4in1/3.jpeg",
         "/products/kahf/bundle-4in1/4.jpeg", "/products/kahf/bundle-4in1/5.jpeg", "/products/kahf/bundle-4in1/6.jpeg",
@@ -304,7 +311,7 @@ export default function Store() {
         {activeCategory && activeCategory.subs.length > 0 && (
           <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 mb-3 flex flex-col gap-2">
             <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-bold">
-              ↳ Pilih Spesifikasi:
+              ↳ Pilih Spesifikasi Area:
             </div>
             <div className="flex flex-wrap gap-1.5 items-center">
               {activeCategory.subs.map((sub) => (
@@ -320,7 +327,7 @@ export default function Store() {
               ))}
               {subFilter !== "all" && (
                 <button onClick={() => handleSubFilter("all")} className="ml-auto bg-rose-500/10 text-rose-400 px-2 py-1 rounded-lg text-[10px] font-mono font-bold">
-                  ✕ Reset
+                  ✕ Reset Area
                 </button>
               )}
             </div>
@@ -331,7 +338,7 @@ export default function Store() {
         {subFilter !== "all" && activeSubObject && activeSubObject.details.length > 0 && (
           <div className="bg-slate-900/40 border border-slate-800/80 border-dashed rounded-xl p-3 mb-6 flex flex-col gap-2">
             <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-bold">
-              ↳ Detail Spesifik:
+              ↳ Filter Berdasarkan Jenis Barang:
             </div>
             <div className="flex flex-wrap gap-1.5 items-center">
               {activeSubObject.details.map((detail) => (
